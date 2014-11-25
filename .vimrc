@@ -222,6 +222,11 @@ let g:NERDTreeWinSize = 20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
+" 隠しファイルの表示
+let NERDTreeShowHidden = 1
+
+" デフォルトでツリー表示
+autocmd VimEnter * execute 'NERDTree'
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -397,18 +402,22 @@ let g:tagbar_autofocus = 1
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-
-
-
-
-
 let g:javascript_enable_domhtmlcss = 1
-
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" ==================================
+"    my setting
+" ==================================
+
+nmap e :NERDTree<CR>
+nmap <C-e> $
+nmap <C-a> 0
+nmap <C-l> :tabnext<CR>
+nmap <C-h> :tabprevious<CR>
 
 
 
