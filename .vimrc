@@ -104,7 +104,8 @@ set backspace=indent,eol,start
 
 "" Tabs. May be overriten by autocmd rules
 set tabstop=4
-set softtabstop=0
+"set softtabstop=4
+set autoindent
 set shiftwidth=4
 set expandtab
 
@@ -226,7 +227,7 @@ noremap <F3> :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 
 " デフォルトでツリー表示
-autocmd VimEnter * execute 'NERDTree'
+" autocmd VimEnter * execute 'NERDTree'
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -269,7 +270,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 
 "" make/cmake
-autocmd FileType make setlocal noexpandtab
+autocmd FileType make setlocal expandtab
 autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 
 if has("gui_running")
@@ -326,13 +327,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_style_error_symbol = '✗'
+" let g:syntastic_style_warning_symbol = '⚠'
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_aggregate_errors = 1
 
 " vim-airline
 let g:airline_enable_syntastic = 1
@@ -418,6 +419,7 @@ nmap <C-e> $
 nmap <C-a> 0
 nmap <C-l> :tabnext<CR>
 nmap <C-h> :tabprevious<CR>
+set expandtab
 
 
 
