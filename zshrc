@@ -1,8 +1,10 @@
 # Set up the prompt
-
+autoload -Uz colors
+colors
 autoload -Uz promptinit
 promptinit
-prompt adam1
+PROMPT="%{$fg[blue]%}%* %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
+# PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%#"
 
 setopt histignorealldups sharehistory
 
@@ -10,8 +12,8 @@ setopt histignorealldups sharehistory
 bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -35,3 +37,51 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+## option
+
+setopt no_beep
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt extended_glob
+setopt hist_ignore_space
+setopt equals
+setopt notify # バックグランドジョブの状態変化を通知
+setopt list_packed
+setopt extended_history # ヒストリに実行時間も保存
+setopt share_history
+
+
+export LSCOLORS=Exfxcxdxbxegedabagacad
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export CLICOLOR=ture
+export ZLS_COLORS=$LS_COLORS
+
+
+
+## alias
+alias la="ls -a"
+alias ll="ls -l"
+alias lla="ls -la"
+
+alias aget="apt-get"
+alias ach="apt-cache"
+
+alias ga="git add"
+alias gs="git status"
+alias gc="git commit"
+alias gd="git diff"
+alias gl="git log"
+alias gb="git branch"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias cl="clear"
+alias cdd="cd ~/Desktop"
+alias sou="source "
+
+alias em="emacs"
+
+
+
