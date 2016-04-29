@@ -1,24 +1,28 @@
 # Set up the prompt
 autoload -Uz colors
 colors
+
 autoload -Uz promptinit
 promptinit
-PROMPT="%{$fg[blue]%}%* %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
-# PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%#"
+PROMPT="%{$fg[blue]%}%* %{$fg_no_bold[yellow]%}%~ %{$reset_color%}%# "
 
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
-# Use modern completion system
+# history modern completion system
 autoload -Uz compinit
 compinit
+
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export ZLS_COLORS=$LS_COLORS
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -27,7 +31,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' menu select=long
@@ -51,13 +55,6 @@ setopt notify # バックグランドジョブの状態変化を通知
 setopt list_packed
 setopt extended_history # ヒストリに実行時間も保存
 setopt share_history
-
-
-export LSCOLORS=Exfxcxdxbxegedabagacad
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export CLICOLOR=ture
-export ZLS_COLORS=$LS_COLORS
-
 
 
 ## alias
