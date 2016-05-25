@@ -93,6 +93,6 @@ alias cdd="cd ~/Desktop"
 alias sou="source "
 
 alias em="emacs"
-
+alias sudo="sudo "
 
 
