@@ -592,3 +592,9 @@ nmap <C-e> $
 nmap <C-a> 0
 nmap <C-l> :tabnext<CR>
 nmap <C-h> :tabprevious<CR>
+
+" imap <C-j> <esc><altr>
+imap <C-j> <esc>
+
+
+

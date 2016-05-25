@@ -95,4 +95,6 @@ alias sou="source "
 alias em="emacs"
 alias sudo="sudo "
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
 
