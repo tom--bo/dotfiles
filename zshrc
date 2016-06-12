@@ -94,6 +94,7 @@ alias sou="source "
 
 alias em="emacs"
 alias sudo="sudo "
+alias cpan-list="find `perl -e 'print \"@INC\"'` -name \"*.pm\" -print"
 
 # go
 export GOPATH=$HOME/go
@@ -102,3 +103,6 @@ export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
 #plenv
 export PATH=$HOME/.plenv/bin:$PATH
 eval "$(plenv init -)"
+
+
+
