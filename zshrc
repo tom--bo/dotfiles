@@ -104,5 +104,7 @@ export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
 export PATH=$HOME/.plenv/bin:$PATH
 eval "$(plenv init -)"
 
+# not gnome256 in terminator
+export COLORTERM=""
 
 
