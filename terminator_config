@@ -1,12 +1,57 @@
 [global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   title_inactive_bg_color = "#6a6668"
   title_receive_bg_color = "#f8e33e"
   title_transmit_bg_color = "#0795b6"
 [keybindings]
+  broadcast_all = None
+  broadcast_group = None
+  broadcast_off = None
+  close_term = None
+  close_window = <Primary>q
+  cycle_next = None
+  cycle_prev = None
+  edit_window_title = None
+  go_down = None
+  go_left = None
+  go_next = None
+  go_prev = None
+  go_right = None
+  go_up = None
+  group_all = None
+  group_tab = None
+  hide_window = None
+  insert_number = None
+  insert_padded = None
+  layout_launcher = None
+  move_tab_left = None
+  move_tab_right = None
+  new_tab = <Alt>t
+  new_terminator = None
+  new_window = None
+  next_tab = <Alt>l
+  prev_tab = <Alt>h
+  reset = None
+  reset_clear = None
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  resize_up = None
+  rotate_ccw = None
+  rotate_cw = None
+  scaled_zoom = None
+  search = <Primary>f
+  split_horiz = <Primary>apostrophe
+  split_vert = <Primary>percent
+  toggle_scrollbar = None
+  toggle_zoom = None
+  ungroup_all = None
+  ungroup_tab = None
 [layouts]
   [[default]]
     [[[child1]]]
       parent = window0
+      profile = default
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -14,3 +59,5 @@
 [plugins]
 [profiles]
   [[default]]
+    background_image = None
+    scrollback_lines = 3000
