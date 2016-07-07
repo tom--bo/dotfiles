@@ -92,7 +92,9 @@ alias cl="clear"
 alias cdd="cd ~/Desktop"
 alias sou="source "
 
-alias sudo="sudo "
+alias em="emacs"
+alias sudo="sudo -E"
+>>>>>>> 6359778013dac3dfad52e583504c91d7fbc3aaf6
 alias cpan-list="find `perl -e 'print \"@INC\"'` -name \"*.pm\" -print"
 
 alias -g L='| less'
