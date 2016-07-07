@@ -93,7 +93,7 @@ alias cdd="cd ~/Desktop"
 alias sou="source "
 
 alias em="emacs"
-alias sudo="sudo "
+alias sudo="sudo -E"
 alias cpan-list="find `perl -e 'print \"@INC\"'` -name \"*.pm\" -print"
 
 # go
