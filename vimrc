@@ -75,9 +75,6 @@ NeoBundle 'honza/vim-snippets'
 "" Color
 NeoBundle 'tomasr/molokai'
 
-"" Vim-Bootstrap Updater by sherzberg
-NeoBundle 'avelino/vim-bootstrap-updater'
-
 "" Custom bundles
 NeoBundle 'vim-scripts/c.vim'
 
