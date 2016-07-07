@@ -92,12 +92,15 @@ alias cl="clear"
 alias cdd="cd ~/Desktop"
 alias sou="source "
 
-alias sudo="sudo "
+alias sudo="sudo -E"
 alias cpan-list="find `perl -e 'print \"@INC\"'` -name \"*.pm\" -print"
 
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
+
+#tmux 256 color
+alias tmux='tmux -2'
 
 
