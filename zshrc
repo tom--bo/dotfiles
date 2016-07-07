@@ -11,8 +11,8 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
+# Keep 100000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=100000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
@@ -92,20 +92,8 @@ alias cl="clear"
 alias cdd="cd ~/Desktop"
 alias sou="source "
 
-alias em="emacs"
 alias sudo="sudo "
 alias cpan-list="find `perl -e 'print \"@INC\"'` -name \"*.pm\" -print"
-
-# go
-export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
-
-#plenv
-export PATH=$HOME/.plenv/bin:$PATH
-eval "$(plenv init -)"
-
-# not gnome256 in terminator
-export COLORTERM=""
 
 alias -g L='| less'
 alias -g H='| head'
