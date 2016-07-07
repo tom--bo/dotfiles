@@ -67,8 +67,6 @@ if v:version >= 703
 endif
 
 if v:version >= 704
-  "" Snippets
-  NeoBundle 'SirVer/ultisnips'
   NeoBundle 'FelikZ/ctrlp-py-matcher'
 endif
 
@@ -382,12 +380,6 @@ let g:ctrlp_map = '<leader>e'
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
-
 " syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
@@ -594,15 +586,5 @@ nmap <C-a> 0
 nmap <C-l> :tabnext<CR>
 nmap <C-h> :tabprevious<CR>
 
-" imap <C-j> <esc><altr>
 imap <C-j> <esc>
-
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-
 
