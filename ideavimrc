@@ -1,1 +1,31 @@
+" insert mode setting
 inoremap <C-j> <esc>
+
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$<Right>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-o>D<Right>
+
+" normal mode seting
+nnoremap x "_x
+vnoremap x "_x
+
+
+"大文字小文字の区別なし
+set ignorecase
+
+"検索時に大文字を含んでいたら大/小を区別
+set smartcase
+
+"検索対象をハイライト
+"ハイライトを消す場合は:noh[l]
+set hlsearch
+
+" クリップボード共有
+set clipboard=unnamed
+
