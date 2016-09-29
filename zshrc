@@ -107,6 +107,9 @@ eval "$(plenv init -)"
 # not gnome256 in terminator
 export COLORTERM=""
 
+# default editor
+export EDITOR=vim
+
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
