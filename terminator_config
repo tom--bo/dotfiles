@@ -1,6 +1,6 @@
 [global_config]
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  title_inactive_bg_color = "#6a6668"
+  title_inactive_bg_color = "#312d2f"
   title_receive_bg_color = "#f8e33e"
   title_transmit_bg_color = "#0795b6"
 [keybindings]
@@ -59,7 +59,11 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.84
+    background_darkness = 0.73
     background_image = None
     background_type = transparent
+    font = Monospace 12
+    foreground_color = "#d2d2d2"
+    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#f0f0f0:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#ffffff"
     scrollback_lines = 3000
+    use_system_font = False
