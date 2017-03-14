@@ -587,4 +587,5 @@ nmap <C-l> :tabnext<CR>
 nmap <C-h> :tabprevious<CR>
 
 imap <C-j> <esc>
+let g:go_autodetect_gopath = 1
 
