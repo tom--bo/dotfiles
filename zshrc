@@ -82,6 +82,7 @@ alias ach="apt-cache"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit"
+alias gch="git checkout"
 alias gd="git diff"
 alias gl="git log"
 alias gb="git branch"
@@ -101,8 +102,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
 
 #plenv
-export PATH=$HOME/.plenv/bin:$PATH
-eval "$(plenv init -)"
+# export PATH=$HOME/.plenv/bin:$PATH
+# eval "$(plenv init -)"
 
 # not gnome256 in terminator
 export COLORTERM=""

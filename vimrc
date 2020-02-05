@@ -1,117 +1,91 @@
-"*****************************************************************************
-"" NeoBundle core
-"*****************************************************************************
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+    set nocompatible
 endif
 
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-let g:vim_bootstrap_langs = "javascript,ruby,c,php,html,perl,go"
-let g:vim_bootstrap_editor = "vim"				" nvim or vim
-
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle..."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
-  let g:not_finsh_neobundle = "yes"
-
-  " Run shell script if exist on custom select language
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+if dein#load_state('~/.vim/dein')
+    call dein#begin('~/.vim/dein')
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('itchyny/lightline.vim')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('tomasr/molokai')
+    call dein#add('jacoborus/tender.vim')
+    call dein#add('w0ng/vim-hybrid')
 
-"*****************************************************************************
-"" NeoBundle install packages
-"*****************************************************************************
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs.git'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'vim-scripts/CSApprox'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle "Yggdroot/indentLine"
+    " Custom bundles
+    call dein#add('vim-scripts/c.vim')
 
-"" Vim-Session
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
+    " Javascript bundles
+    call dein#add('jelera/vim-javascript-syntax')
 
-if v:version >= 703
-  NeoBundle 'Shougo/vimshell.vim'
+    " Perl bundles
+    call dein#add('vim-perl/vim-perl')
+    call dein#add('c9s/perlomni.vim')
+
+    " HTML bundles
+    call dein#add('hail2u/vim-css3-syntax')
+    call dein#add('gorodinskiy/vim-coloresque')
+    call dein#add('tpope/vim-haml')
+    call dein#add('mattn/emmet-vim')
+
+    " Go bundles
+    call dein#add('fatih/vim-go')
+
+    " PHP bundles
+    call dein#add('arnaud-lb/vim-php-namespace')
+
+    " Ruby bundles
+    call dein#add('tpope/vim-rails') 
+    call dein#add('tpope/vim-rake')
+    call dein#add('tpope/vim-projectionist')
+    call dein#add('thoughtbot/vim-rspec')
+    call dein#add('ecomba/vim-ruby-refactoring')
+
+    call dein#add('xolox/vim-misc')
+    call dein#add('xolox/vim-session')
+    call dein#add('FelikZ/ctrlp-py-matcher')
+    call dein#add('honza/vim-snippets')
+
+    call dein#end()
+    call dein#save_state()
 endif
 
-if v:version >= 704
-  NeoBundle 'FelikZ/ctrlp-py-matcher'
-endif
-
-NeoBundle 'honza/vim-snippets'
-
-"" Color
-NeoBundle 'tomasr/molokai'
-
-"" Vim-Bootstrap Updater by sherzberg
-NeoBundle 'avelino/vim-bootstrap-updater'
-
-"" Custom bundles
-NeoBundle 'vim-scripts/c.vim'
-
-"" Javascript Bundle
-NeoBundle 'jelera/vim-javascript-syntax'
-
-"" Perl Bundle
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'c9s/perlomni.vim'
-
-"" HTML Bundle
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'mattn/emmet-vim'
-
-"" Go Lang Bundle
-NeoBundle "fatih/vim-go"
-
-"" PHP Bundle
-NeoBundle 'arnaud-lb/vim-php-namespace'
-
-"" Ruby Bundle
-NeoBundle "tpope/vim-rails"
-NeoBundle "tpope/vim-rake"
-NeoBundle "tpope/vim-projectionist"
-NeoBundle "thoughtbot/vim-rspec"
-NeoBundle "ecomba/vim-ruby-refactoring"
-
-"" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-  source ~/.vimrc.local.bundles
-endif
-
-call neobundle#end()
-
-" Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+if dein#check_install()
+    call dein#install()
+endif
+
+" *******************
+"  Color 
+" *******************
+set background=dark
+colorscheme hybrid
+
+
+" *******************
+"  Key
+" *******************
+nmap e :NERDTree<CR>
+nmap <C-e> $
+nmap <C-a> 0
+nmap <C-l> :tabnext<CR>
+nmap <C-h> :tabprevious<CR>
+                    
+"  golang
+let g:go_autodetect_gopath = 1
 
 "*****************************************************************************
 "" Basic Setup
@@ -167,11 +141,6 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
-
-let no_buffers_menu=1
-if !exists('g:not_finsh_neobundle')
-  colorscheme molokai
-endif
 
 set mousemodel=popup
 set t_Co=256
@@ -229,21 +198,6 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-"*****************************************************************************
-"" Abbreviations
-"*****************************************************************************
-"" no one is really happy until you have this shortcuts
-cnoreabbrev W! w!
-cnoreabbrev Q! q!
-cnoreabbrev Qall! qall!
-cnoreabbrev Wq wq
-cnoreabbrev Wa wa
-cnoreabbrev wQ wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev Qall qall
-
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
@@ -261,17 +215,6 @@ nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
-
-" vimshell.vim
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_prompt =  '$ '
-
-" terminal emulation
-if g:vim_bootstrap_editor == 'nvim'
-  nnoremap <silent> <leader>sh :terminal<CR>
-else
-  nnoremap <silent> <leader>sh :VimShellCreate<CR>
-endif
 
 "*****************************************************************************
 "" Functions
@@ -439,10 +382,6 @@ vnoremap K :m '<-2<CR>gv=gv
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 
 "" Custom configs
-
-
-
-
 let g:javascript_enable_domhtmlcss = 1
 
 " vim-javascript
@@ -450,9 +389,6 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4 smartindent
 augroup END
-
-
-
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -568,15 +504,6 @@ else
 endif
 
 
-"*****************************************************************************
-"" My settings
-"*****************************************************************************
-nmap e :NERDTree<CR>
-nmap <C-e> $
-nmap <C-a> 0
-nmap <C-l> :tabnext<CR>
-nmap <C-h> :tabprevious<CR>
 
-imap <C-j> <esc>
-let g:go_autodetect_gopath = 1
 
+hi LineNr ctermfg=2
