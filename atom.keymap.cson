@@ -1,0 +1,11 @@
+# add setting
+
+## Ubuntu
+# 'body':
+#   'ctrl-alt-h': 'pane:show-previous-item'
+#   'ctrl-alt-l': 'pane:show-next-item'
+
+## Mac
+# 'body':
+#   'ctrl-cmd-h': 'pane:show-previous-item'
+#   'ctrl-cmd-l': 'pane:show-next-item'
